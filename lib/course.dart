@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 
-import 'main.dart'; // LongButton
-
-class MyCourseTile extends StatelessWidget {
+class CourseTile extends StatelessWidget {
   final String title;
   final int percentage;
-  MyCourseTile({this.title, this.percentage});
+  CourseTile({this.title, this.percentage});
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +26,8 @@ class MyCourseTile extends StatelessWidget {
                                 style: TextStyle(
                                     fontSize: 20,
                                     fontWeight: FontWeight.bold
-                                )),
+                                )
+                            ),
 
                             Text(
                               "Progress belajar: $percentage%",
@@ -58,58 +57,31 @@ class MyCourseTile extends StatelessWidget {
   }
 }
 
-class MyCourse extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          "My Courses",
-          style: TextStyle(
-            fontSize: 18,
-          ),
-        ),
-
-        Padding(
-          padding: EdgeInsets.symmetric(vertical: 14),
-          child: Column(
-            children: [
-
-              MyCourseTile(title: "Matematika Dasar tingkat Lanjut", percentage: 50),
-              MyCourseTile(title: "Merawat Kucing untuk Pemula", percentage: 10),
-              MyCourseTile(title: "OOP dengan bahasa Whitespace", percentage: 42)
-
-            ],
-          ),
-        )
-      ],
-    );
-  }
-}
-
-// https://flutter.dev/docs/cookbook/design/tabs
-class AllCourse extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(),
-      body: Text("hehehiho"),
-    );
-  }
-}
-
 class Course extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView(
         children: [
-          MyCourse(),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: EdgeInsets.symmetric(vertical: 14),
+                child: Column(
+                  children: [
 
-          LongButton(label: "See Catalog", to: AllCourse())
+                    CourseTile(title: "Matematika Dasar tingkat Lanjut", percentage: 50),
+                    CourseTile(title: "Merawat Kucing untuk Pemula", percentage: 10),
+                    CourseTile(title: "OOP dengan bahasa Whitespace", percentage: 42),
+                    CourseTile(title: "Pengantar Teori Astrologi", percentage: 0)
+
+                  ],
+                ),
+              )
+            ],
+          ),
 
         ]
     );
   }
 }
-

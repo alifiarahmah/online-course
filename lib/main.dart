@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'register.dart';
-import 'login.dart';
 import 'template.dart';
 
 void main() {
@@ -18,61 +16,12 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class Main extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        constraints: BoxConstraints.expand(),
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-
-              Icon(Icons.menu_book, size: 100, color: Colors.blue,),
-
-              Text(
-                "Online Course App",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24)
-              ),
-
-              Text(
-                "Learn anywhere with us",
-                style: TextStyle(fontStyle: FontStyle.italic, fontSize: 18)
-              ),
-
-              SizedBox(height: 50),
-
-              LongButton(
-                label: "Register",
-                to: Register(),
-                color: Colors.white,
-                bgcolor: Colors.blue
-              ),
-
-              SizedBox(
-                height: 20,
-              ),
-
-              LongButton(
-                  label: "Log In",
-                  to: Login(),
-                  color: Colors.black,
-                  bgcolor: Colors.white
-              ),
-
-            ],
-          )
-        ),
-      )
-    );
-  }
-}
+// COMPONENTS
 
 class LongButton extends StatelessWidget{
-  String label;
-  Widget to;
-  Color color, bgcolor;
+  final String label;
+  final Widget to;
+  final Color color, bgcolor;
   LongButton({this.label, this.to, this.color, this.bgcolor});
 
   @override
@@ -85,7 +34,7 @@ class LongButton extends StatelessWidget{
         );
       },
       child: Text(label,
-        style: TextStyle(color: color)
+          style: TextStyle(color: color)
       ),
       style: ElevatedButton.styleFrom(
         primary: bgcolor,

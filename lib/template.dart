@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
-import 'dashboard.dart';
 import 'course.dart';
 import 'forum.dart';
 import 'profile.dart';
 
 class Template extends StatefulWidget {
+  final String name;
+  Template({this.name});
+
   @override
   _Template createState() => _Template();
 }
@@ -13,8 +15,8 @@ class Template extends StatefulWidget {
 // referensi: https://api.flutter.dev/flutter/material/BottomNavigationBar-class.html
 class _Template extends State<Template> {
   int idx = 0;
-  static List<String> widgetNames = ["Dashboard", "Courses", "Forum", "My Profile"];
-  static List<Widget> widgetList = [Dashboard(), Course(), Forum(), Profile()];
+  static List<String> widgetNames = ["Courses", "Forum", "Profile"];
+  static List<Widget> widgetList = [Course(), Forum(), Profile()];
 
   @override
   Widget build(BuildContext context) {
@@ -42,10 +44,6 @@ class _Template extends State<Template> {
 
         items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Dasboard',
-          ),
-          BottomNavigationBarItem(
               icon: Icon(Icons.menu_book_outlined),
               label: 'Courses'
           ),
@@ -55,8 +53,8 @@ class _Template extends State<Template> {
           ),
           BottomNavigationBarItem(
               icon: Icon(Icons.person),
-              label: 'My Profile'
-          )
+              label: 'Profile'
+          ),
         ],
       ),
     );
