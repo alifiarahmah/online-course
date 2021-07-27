@@ -5,9 +5,6 @@ import 'forum.dart';
 import 'profile.dart';
 
 class Template extends StatefulWidget {
-  final String name;
-  Template({this.name});
-
   @override
   _Template createState() => _Template();
 }

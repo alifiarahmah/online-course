@@ -1,22 +1,32 @@
+import 'package:dicodingflutter/main.dart';
 import 'package:flutter/material.dart';
 
-class Profile extends StatelessWidget {
-  final String name;
-  Profile({this.name});
+import 'loginregister.dart';
 
+class Profile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView(
         children: [
-          ProfileHead(name: name)
+          ProfileHead(),
+          Container(
+            child: Column(
+              children: [
+                LongButton(
+                  label: "Log Out",
+                  bgcolor: Colors.red,
+                  color: Colors.white,
+                  to: Landing()
+                )
+              ],
+            ),
+          )
         ]
     );
   }
 }
 
 class ProfileHead extends StatelessWidget {
-  final String name;
-  ProfileHead({this.name});
 
   @override
   Widget build(BuildContext context) {
@@ -28,9 +38,24 @@ class ProfileHead extends StatelessWidget {
             radius: 40,
           ),
 
-          Text(name) // TODO: ganti sesuai login
+          SizedBox(height: 24),
+
+          Text(
+            "Firstname Lastname",
+            style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 24
+            ),
+          ),
+
+          SizedBox(height: 30),
+
+          Text("Bio"),
+
+          SizedBox(height: 30),
+
         ],
-      ),
+        )
     );
   }
 }
